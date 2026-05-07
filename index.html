@@ -990,11 +990,14 @@
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(() => { document.getElementById('r-bar').style.width = pct + '%'; }, 100);
   }
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScTiEa-iwIo1fjKTRGGUVBoEUsahK0r0mklZ_VxLrI6u-Uvag/viewform';
+
+  function goToForm() {
+    window.open(FORM_URL, '_blank');
+  }
+
   function handleResultForm() {
-    const n = document.getElementById('r-name').value;
-    const e = document.getElementById('r-email').value;
-    if (!n || !e) { alert('Please enter your name and email.'); return; }
-    document.getElementById('sc-result').innerHTML = '<div style="text-align:center;padding:32px 0;"><div style="font-size:2.5rem;margin-bottom:14px;">✓</div><div style="font-family:Cormorant Garamond,serif;font-size:1.6rem;color:#fff;margin-bottom:8px;">Inquiry received.</div><div style="font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;">A C-Suite Support specialist will be in touch within one business day.</div></div>';
+    goToForm();
   }
 
   // Email tabs
@@ -1005,8 +1008,7 @@
 
   // Modal
   function openModal() {
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    goToForm();
   }
   function closeModal() {
     document.getElementById('modal').classList.remove('open');
@@ -1014,17 +1016,12 @@
   }
   function closeModalOutside(e) { if (e.target.id === 'modal') closeModal(); }
   function handleModal() {
-    const n = document.getElementById('m-name').value;
-    const e = document.getElementById('m-email').value;
-    if (!n || !e) { alert('Please enter your name and email.'); return; }
+    goToForm();
     document.getElementById('m-form').style.display = 'none';
     document.getElementById('m-success').style.display = 'block';
   }
   function handleHeroForm() {
-    const n = document.getElementById('h-name').value;
-    const e = document.getElementById('h-email').value;
-    if (!n || !e) { alert('Please enter your name and email.'); return; }
-    openModal();
+    goToForm();
   }
 
   // Scroll animations
