@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C-Suite Support, Inc. | Fractional CFO Services for Growing Companies</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b1f3a;
+    --navy-mid: #162e50;
+    --gold: #b8902a;
+    --gold-light: #d4aa4e;
+    --silver: #c8cdd4;
+    --cream: #f8f6f1;
+    --white: #ffffff;
+    --ink: #111827;
+    --mist: #e9e5dd;
+    --text-muted: #6b7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 200;
+    background: var(--navy);
+    padding: 0 64px;
+    height: 72px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .nav-logo-mark {
+    width: 38px; height: 38px;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.03em;
+  }
+  .nav-name span { color: var(--gold-light); }
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+  .nav-link {
+    font-size: 0.78rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.6);
+    cursor: pointer; transition: color 0.2s;
+    background: none; border: none; font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+  }
+  .nav-link:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 24px;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    transition: all 0.2s; font-family: 'Outfit', sans-serif;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 55% 45%;
+    padding-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(184,144,42,0.08) 0%, transparent 55%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 60px,
+        rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px
+      );
+    pointer-events: none;
+  }
+  .hero-left {
+    padding: 80px 64px 80px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold-light);
+    font-weight: 500; margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 32px; height: 1px; background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    line-height: 1.08; font-weight: 700;
+    color: var(--white); margin-bottom: 28px;
+  }
+  .hero-h1 em {
+    font-style: italic; color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.75;
+    color: rgba(255,255,255,0.6);
+    max-width: 460px; margin-bottom: 48px; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 16px 36px; font-size: 0.82rem;
+    font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; border: none; cursor: pointer;
+    transition: all 0.25s; font-family: 'Outfit', sans-serif;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: rgba(255,255,255,0.75);
+    padding: 16px 36px; font-size: 0.82rem;
+    font-weight: 400; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2); cursor: pointer;
+    transition: all 0.25s; font-family: 'Outfit', sans-serif;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+  .hero-trust {
+    display: flex; gap: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 40px;
+  }
+  .trust-item { display: flex; flex-direction: column; }
+  .trust-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--white); line-height: 1;
+  }
+  .trust-num span { color: var(--gold-light); }
+  .trust-label {
+    font-size: 0.72rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-top: 4px; font-weight: 300;
+  }
+  .hero-right {
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 48px 60px 32px;
+    position: relative; z-index: 1;
+  }
+  .lead-card {
+    background: var(--white);
+    width: 100%; max-width: 400px;
+    padding: 44px 40px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  .lead-card-badge {
+    position: absolute; top: -14px; left: 40px;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px;
+  }
+  .lead-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 6px; line-height: 1.2;
+  }
+  .lead-card-sub {
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 28px; line-height: 1.6; font-weight: 300;
+  }
+  .field-label {
+    font-size: 0.7rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted);
+    font-weight: 500; margin-bottom: 6px; display: block;
+  }
+  .field-input {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid #e5e7eb;
+    background: #fafafa;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem; color: var(--ink);
+    outline: none; transition: border-color 0.2s;
+    margin-bottom: 16px;
+  }
+  .field-input:focus { border-color: var(--gold); background: var(--white); }
+  .field-input::placeholder { color: #c0c4cc; }
+  .field-input option { color: var(--ink); }
+  .form-submit {
+    width: 100%; background: var(--navy);
+    color: var(--white); padding: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    transition: all 0.2s; margin-top: 4px;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); }
+  .form-privacy {
+    font-size: 0.7rem; color: #9ca3af;
+    text-align: center; margin-top: 12px; line-height: 1.5;
+  }
+
+  /* ── SECTION BASE ── */
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .section-tag::before {
+    content: ''; width: 24px; height: 1.5px;
+    background: currentColor;
+  }
+  .section-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+  }
+
+  /* ── WHO WE SERVE ── */
+  .serve-section {
+    padding: 100px 80px;
+    background: var(--cream);
+  }
+  .serve-intro { max-width: 600px; margin-bottom: 64px; }
+  .serve-intro .section-tag { color: var(--gold); }
+  .serve-intro .section-h2 { color: var(--ink); margin-bottom: 20px; }
+  .serve-intro p { font-size: 0.95rem; line-height: 1.8; color: var(--text-muted); font-weight: 300; }
+  .serve-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--mist);
+  }
+  .serve-card {
+    background: var(--white); padding: 40px 36px;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .serve-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 3px; background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .serve-card:hover::after { width: 100%; }
+  .serve-card:hover { background: var(--navy); }
+  .serve-icon {
+    width: 48px; height: 48px;
+    background: rgba(184,144,42,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 24px;
+    transition: background 0.3s;
+  }
+  .serve-card:hover .serve-icon { background: rgba(184,144,42,0.2); }
+  .serve-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 700;
+    margin-bottom: 14px; color: var(--ink);
+    transition: color 0.3s;
+  }
+  .serve-card:hover .serve-title { color: var(--white); }
+  .serve-text {
+    font-size: 0.88rem; line-height: 1.75;
+    color: var(--text-muted); font-weight: 300;
+    transition: color 0.3s;
+  }
+  .serve-card:hover .serve-text { color: rgba(255,255,255,0.55); }
+  .serve-list {
+    list-style: none; margin-top: 20px;
+    border-top: 1px solid var(--mist); padding-top: 20px;
+    transition: border-color 0.3s;
+  }
+  .serve-card:hover .serve-list { border-color: rgba(255,255,255,0.08); }
+  .serve-list li {
+    font-size: 0.82rem; padding: 7px 0;
+    color: #555; font-weight: 300;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.3s, border-color 0.3s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .serve-card:hover .serve-list li { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.06); }
+  .serve-list li::before {
+    content: ''; width: 4px; height: 4px;
+    background: var(--gold); border-radius: 50%; flex-shrink: 0;
+  }
+  .serve-list li:last-child { border-bottom: none; }
+
+  /* ── PAIN ── */
+  .pain-section {
+    padding: 100px 80px;
+    background: var(--navy);
+    color: var(--white);
+  }
+  .pain-section .section-tag { color: var(--gold-light); }
+  .pain-section .section-h2 { color: var(--white); max-width: 680px; margin-bottom: 64px; }
+  .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .pain-card {
+    padding: 36px;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .pain-card:hover { border-color: var(--gold); background: rgba(184,144,42,0.04); }
+  .pain-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 700;
+    color: rgba(184,144,42,0.18); line-height: 1; margin-bottom: 16px;
+  }
+  .pain-title {
+    font-size: 1rem; font-weight: 600;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .pain-text {
+    font-size: 0.87rem; line-height: 1.75;
+    color: rgba(255,255,255,0.5); font-weight: 300;
+  }
+
+  /* ── SCORECARD ── */
+  .scorecard-section {
+    padding: 100px 80px;
+    background: var(--cream);
+  }
+  .scorecard-wrap { max-width: 800px; margin: 0 auto; }
+  .scorecard-intro { margin-bottom: 56px; }
+  .scorecard-intro .section-tag { color: var(--gold); }
+  .scorecard-intro .section-h2 { color: var(--ink); margin-bottom: 16px; }
+  .scorecard-intro p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+  .q-block {
+    border-bottom: 1px solid var(--mist);
+    padding: 30px 0;
+  }
+  .q-header { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; }
+  .q-badge {
+    width: 28px; height: 28px; background: var(--navy);
+    color: var(--gold-light); font-size: 0.7rem; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px; letter-spacing: 0.05em;
+  }
+  .q-text { font-size: 0.97rem; font-weight: 400; line-height: 1.5; color: var(--ink); }
+  .q-options { display: flex; gap: 10px; flex-wrap: wrap; padding-left: 48px; }
+  .q-opt {
+    padding: 9px 20px;
+    border: 1.5px solid #dde1e7;
+    font-size: 0.82rem; cursor: pointer;
+    transition: all 0.2s; background: var(--white);
+    color: var(--ink); font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+  }
+  .q-opt:hover { border-color: var(--gold); color: var(--gold); }
+  .q-opt.selected { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  .scorecard-cta-wrap { display: none; text-align: center; margin-top: 48px; }
+  .scorecard-result {
+    display: none; margin-top: 48px;
+    background: var(--navy); padding: 52px; color: var(--white);
+  }
+  .result-top { display: flex; align-items: center; gap: 36px; margin-bottom: 28px; }
+  .result-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5.5rem; font-weight: 700; color: var(--gold-light); line-height: 1;
+  }
+  .result-label { font-size: 1.15rem; font-weight: 600; color: var(--white); }
+  .result-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 6px; font-weight: 300; }
+  .result-bar-wrap { height: 3px; background: rgba(255,255,255,0.1); margin-bottom: 32px; }
+  .result-bar-fill { height: 100%; background: var(--gold); transition: width 0.9s ease; }
+  .result-body { font-size: 0.92rem; line-height: 1.85; color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 36px; }
+  .result-form-title { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 20px; }
+  .result-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .result-input {
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white); font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem; outline: none; transition: border-color 0.2s;
+    width: 100%;
+  }
+  .result-input::placeholder { color: rgba(255,255,255,0.3); }
+  .result-input:focus { border-color: var(--gold); }
+  .result-input option { background: var(--navy); }
+  .result-submit {
+    width: 100%; padding: 15px;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all 0.2s; margin-top: 8px;
+  }
+  .result-submit:hover { background: var(--gold-light); }
+
+  /* ── EMAIL SEQUENCE ── */
+  .email-section {
+    padding: 100px 80px;
+    background: var(--white);
+  }
+  .email-section .section-tag { color: var(--gold); }
+  .email-section .section-h2 { color: var(--ink); max-width: 520px; margin-bottom: 48px; }
+  .email-tabs { display: flex; border-bottom: 2px solid var(--mist); margin-bottom: 0; }
+  .email-tab {
+    padding: 13px 26px;
+    font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 500;
+    cursor: pointer; border: none; background: none;
+    color: #aaa; transition: all 0.2s;
+    font-family: 'Outfit', sans-serif;
+    border-bottom: 2px solid transparent; margin-bottom: -2px;
+  }
+  .email-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .email-tab:hover { color: var(--navy); }
+  .email-panel { display: none; }
+  .email-panel.active { display: block; }
+  .email-mock {
+    border: 1px solid var(--mist); border-top: none;
+    padding: 48px; max-width: 680px;
+    background: #fcfcfc;
+  }
+  .email-meta { font-size: 0.75rem; color: #aaa; margin-bottom: 4px; }
+  .email-subject {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--ink);
+    margin-bottom: 28px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--mist); line-height: 1.3;
+  }
+  .email-body { font-size: 0.91rem; line-height: 1.9; color: #444; font-weight: 300; }
+  .email-body p { margin-bottom: 16px; }
+  .email-body strong { font-weight: 600; color: var(--ink); }
+  .email-sig { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--mist); }
+  .email-sig-name { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+  .email-sig-co {
+    font-size: 0.8rem; color: var(--gold);
+    font-weight: 500; margin-top: 2px;
+  }
+
+  /* ── LEAD CTA STRIP ── */
+  .cta-strip {
+    padding: 80px;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .cta-strip-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    font-weight: 700; color: var(--navy); line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cta-strip-left p { font-size: 0.92rem; color: rgba(11,31,58,0.7); font-weight: 300; }
+  .cta-strip-btn {
+    background: var(--navy); color: var(--white);
+    padding: 18px 44px; font-size: 0.82rem;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer; white-space: nowrap;
+    transition: all 0.2s; font-family: 'Outfit', sans-serif; flex-shrink: 0;
+  }
+  .cta-strip-btn:hover { background: var(--navy-mid); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 48px 80px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 40px; align-items: center;
+  }
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600; color: var(--white);
+    margin-bottom: 8px;
+  }
+  .footer-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(11,31,58,0.88); z-index: 1000;
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white); max-width: 480px; width: 92%;
+    padding: 52px; position: relative;
+    border-top: 4px solid var(--gold);
+    animation: modalSlide 0.3s ease;
+  }
+  @keyframes modalSlide {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .modal-x {
+    position: absolute; top: 18px; right: 20px;
+    background: none; border: none; font-size: 1.3rem;
+    color: #bbb; cursor: pointer; line-height: 1;
+  }
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 700; margin-bottom: 6px;
+  }
+  .modal-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px; line-height: 1.6; font-weight: 300; }
+  .modal-success { display: none; text-align: center; padding: 16px 0; }
+  .modal-success-icon { font-size: 2.8rem; margin-bottom: 14px; }
+  .modal-success-h { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; margin-bottom: 8px; }
+  .modal-success-p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 32px; }
+    .hero-right { padding: 40px 32px 60px; }
+    nav { padding: 0 24px; }
+    .nav-right .nav-link { display: none; }
+    .serve-section, .pain-section, .scorecard-section, .email-section { padding: 64px 32px; }
+    .serve-grid, .pain-grid { grid-template-columns: 1fr; }
+    .cta-strip { padding: 60px 32px; flex-direction: column; }
+    footer { padding: 40px 32px; grid-template-columns: 1fr; }
+    .result-fields { grid-template-columns: 1fr; }
+    .hero-trust { gap: 28px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-mark">CS</div>
+    <div class="nav-name">C-Suite Support<span>, Inc.</span></div>
+  </div>
+  <div class="nav-right">
+    <button class="nav-link" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</button>
+    <button class="nav-link" onclick="document.getElementById('scorecard').scrollIntoView({behavior:'smooth'})">Scorecard</button>
+    <button class="nav-cta" onclick="openModal()">Get Connected</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-left fade-up">
+    <div class="hero-eyebrow">Fractional C-Suite Services</div>
+    <h1 class="hero-h1">Executive leadership<br>for companies that are<br><em>ready to scale.</em></h1>
+    <p class="hero-sub">C-Suite Support connects growing companies with fractional CFOs, COOs, and strategic advisors — so you get the leadership firepower of a Fortune 500 team at a fraction of the cost.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('scorecard').scrollIntoView({behavior:'smooth'})">Take the Readiness Scorecard</button>
+      <button class="btn-outline" onclick="openModal()">Connect With a Specialist</button>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-num">$<span>1M</span>+</div>
+        <div class="trust-label">Minimum revenue served</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num"><span>30</span></div>
+        <div class="trust-label">Day engagement launch</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num"><span>10</span>×</div>
+        <div class="trust-label">Avg. ROI on engagement</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num"><span>0</span></div>
+        <div class="trust-label">Long-term contracts required</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="lead-card fade-up">
+      <div class="lead-card-badge">Free Consultation</div>
+      <div class="lead-card-title">Connect With a Fractional CFO</div>
+      <div class="lead-card-sub">Tell us about your company. We'll match you with the right specialist within one business day.</div>
+      <label class="field-label">Your Name</label>
+      <input class="field-input" type="text" placeholder="Jane Smith" id="h-name">
+      <label class="field-label">Work Email</label>
+      <input class="field-input" type="email" placeholder="jane@company.com" id="h-email">
+      <label class="field-label">Company & Revenue Stage</label>
+      <select class="field-input" id="h-revenue">
+        <option value="" disabled selected>Select revenue range</option>
+        <option>$1M – $3M</option>
+        <option>$3M – $10M</option>
+        <option>$10M – $25M</option>
+        <option>$25M+</option>
+      </select>
+      <label class="field-label">Biggest Financial Challenge</label>
+      <select class="field-input" id="h-challenge">
+        <option value="" disabled selected>Select your priority</option>
+        <option>Cash flow & forecasting</option>
+        <option>Fundraising / capital raise</option>
+        <option>Financial model buildout</option>
+        <option>Cap table cleanup</option>
+        <option>KPI & reporting dashboards</option>
+        <option>M&A or exit preparation</option>
+        <option>General CFO oversight</option>
+      </select>
+      <button class="form-submit" onclick="handleHeroForm()">Connect Me With a Specialist →</button>
+      <div class="form-privacy">Your information is never sold or shared with third parties.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="serve-section" id="services">
+  <div class="serve-intro fade-up">
+    <div class="section-tag">What We Deliver</div>
+    <h2 class="section-h2">Fractional leadership across every C-Suite function.</h2>
+    <p style="margin-top: 16px;">Every engagement is scoped to your company's actual stage and gaps — not a one-size-fits-all retainer.</p>
+  </div>
+  <div class="serve-grid">
+    <div class="serve-card fade-up">
+      <div class="serve-icon">📊</div>
+      <div class="serve-title">Fractional CFO</div>
+      <p class="serve-text">Strategic financial leadership — from cash forecasting and fundraise prep to board reporting and M&A readiness.</p>
+      <ul class="serve-list">
+        <li>3-statement financial modeling</li>
+        <li>13-week cash flow forecasting</li>
+        <li>Cap table management</li>
+        <li>Investor & lender readiness</li>
+        <li>Unit economics & margin analysis</li>
+      </ul>
+    </div>
+    <div class="serve-card fade-up">
+      <div class="serve-icon">⚙️</div>
+      <div class="serve-title">Fractional COO</div>
+      <p class="serve-text">Operational architecture for companies that have outgrown founder-led execution but aren't ready for a full-time hire.</p>
+      <ul class="serve-list">
+        <li>Process design & documentation</li>
+        <li>Team structure & accountability</li>
+        <li>Vendor & supply chain optimization</li>
+        <li>Technology stack assessment</li>
+        <li>OKR / KPI framework buildout</li>
+      </ul>
+    </div>
+    <div class="serve-card fade-up">
+      <div class="serve-icon">🧭</div>
+      <div class="serve-title">Strategic Advisory</div>
+      <p class="serve-text">Board-level strategic counsel on growth, capital allocation, acquisitions, and organizational design.</p>
+      <ul class="serve-list">
+        <li>Growth strategy frameworks</li>
+        <li>M&A target evaluation</li>
+        <li>Franchise & expansion planning</li>
+        <li>Capital structure optimization</li>
+        <li>Exit readiness planning</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN SECTION -->
+<section class="pain-section">
+  <div class="section-tag" style="color: var(--gold-light);">The Problem</div>
+  <h2 class="section-h2 fade-up">Most growing companies hit a wall between $2M and $15M — and never see it coming.</h2>
+  <div class="pain-grid">
+    <div class="pain-card fade-up">
+      <div class="pain-num">01</div>
+      <div class="pain-title">Managing by instinct, not intelligence</div>
+      <p class="pain-text">Your bookkeeper closes the books monthly but nobody's translating those numbers into forward-looking decisions. You're reacting to the past, not steering toward the future.</p>
+    </div>
+    <div class="pain-card fade-up">
+      <div class="pain-num">02</div>
+      <div class="pain-title">Capital events expose the gaps</div>
+      <p class="pain-text">Whether it's a bank line, a fundraise, or a strategic buyer — sophisticated capital asks questions your QuickBooks dashboard can't answer. The absence of infrastructure becomes visible at exactly the wrong moment.</p>
+    </div>
+    <div class="pain-card fade-up">
+      <div class="pain-num">03</div>
+      <div class="pain-title">Growth is outpacing the systems</div>
+      <p class="pain-text">You've scaled past what a bookkeeper can handle but a full-time C-Suite hire isn't justified yet. The in-between is where most companies operate for years — and where the most value is lost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="scorecard-section" id="scorecard">
+  <div class="scorecard-wrap">
+    <div class="scorecard-intro fade-up">
+      <div class="section-tag">Readiness Assessment</div>
+      <h2 class="section-h2">Is your company ready to scale its financial infrastructure?</h2>
+      <p style="margin-top: 14px;">Answer 6 questions. Get an instant score and a personalized recommendation — no email required to see your results.</p>
+    </div>
+
+    <div id="sq-wrap">
+      <div class="q-block">
+        <div class="q-header">
+          <div class="q-badge">01</div>
+          <div class="q-text">How far out can you accurately forecast your company's cash position?</div>
+        </div>
+        <div class="q-options">
+          <button class="q-opt" onclick="selectQ(this,0,1)">Less than 30 days</button>
+          <button class="q-opt" onclick="selectQ(this,0,2)">30–60 days</button>
+          <button class="q-opt" onclick="selectQ(this,0,3)">90 days or more</button>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-header">
+          <div class="q-badge">02</div>
+          <div class="q-text">Do you have a financial model projecting revenue, costs, and headcount for the next 12–18 months?</div>
+        </div>
+        <div class="q-options">
+          <button class="q-opt" onclick="selectQ(this,1,1)">No model exists</button>
+          <button class="q-opt" onclick="selectQ(this,1,2)">Basic spreadsheet</button>
+          <button class="q-opt" onclick="selectQ(this,1,3)">Dynamic, scenario-based model</button>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-header">
+          <div class="q-badge">03</div>
+          <div class="q-text">If an investor asked for your unit economics today, how quickly could you produce them?</div>
+        </div>
+        <div class="q-options">
+          <button class="q-opt" onclick="selectQ(this,2,1)">Days or weeks</button>
+          <button class="q-opt" onclick="selectQ(this,2,2)">A day or two</button>
+          <button class="q-opt" onclick="selectQ(this,2,3)">Within the hour</button>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-header">
+          <div class="q-badge">04</div>
+          <div class="q-text">Do you know your gross margin broken down by product line, channel, or customer segment?</div>
+        </div>
+        <div class="q-options">
+          <button class="q-opt" onclick="selectQ(this,3,1)">Not really</button>
+          <button class="q-opt" onclick="selectQ(this,3,2)">Roughly, company-wide only</button>
+          <button class="q-opt" onclick="selectQ(this,3,3)">Yes, in detail</button>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-header">
+          <div class="q-badge">05</div>
+          <div class="q-text">Is your cap table clean, current, and ready for external due diligence?</div>
+        </div>
+        <div class="q-options">
+          <button class="q-opt" onclick="selectQ(this,4,1)">We don't have one</button>
+          <button class="q-opt" onclick="selectQ(this,4,2)">Exists but needs work</button>
+          <button class="q-opt" onclick="selectQ(this,4,3)">Clean and diligence-ready</button>
+        </div>
+      </div>
+      <div class="q-block" style="border-bottom:none;">
+        <div class="q-header">
+          <div class="q-badge">06</div>
+          <div class="q-text">Does your leadership team review financial KPIs on a regular, structured cadence?</div>
+        </div>
+        <div class="q-options">
+          <button class="q-opt" onclick="selectQ(this,5,1)">Never or rarely</button>
+          <button class="q-opt" onclick="selectQ(this,5,2)">Monthly at best</button>
+          <button class="q-opt" onclick="selectQ(this,5,3)">Weekly with clear owners</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="scorecard-cta-wrap" id="sc-cta">
+      <button class="btn-primary" onclick="showResult()" style="padding: 18px 48px; font-size: 0.85rem;">Calculate My Score →</button>
+    </div>
+
+    <div class="scorecard-result" id="sc-result">
+      <div class="result-top">
+        <div class="result-score" id="r-pct">—</div>
+        <div>
+          <div class="result-label" id="r-label"></div>
+          <div class="result-sub" id="r-sub"></div>
+        </div>
+      </div>
+      <div class="result-bar-wrap"><div class="result-bar-fill" id="r-bar" style="width:0%"></div></div>
+      <div class="result-body" id="r-body"></div>
+      <div class="result-form-title">Connect with a C-Suite Support specialist — no obligation.</div>
+      <div class="result-fields">
+        <input class="result-input" type="text" placeholder="Your Name" id="r-name">
+        <input class="result-input" type="email" placeholder="Work Email" id="r-email">
+        <input class="result-input" type="text" placeholder="Company Name" id="r-co">
+        <select class="result-input" id="r-rev">
+          <option value="" disabled selected>Revenue Range</option>
+          <option>$1M – $3M</option>
+          <option>$3M – $10M</option>
+          <option>$10M – $25M</option>
+          <option>$25M+</option>
+        </select>
+      </div>
+      <button class="result-submit" onclick="handleResultForm()">Connect Me With a Specialist →</button>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SEQUENCE -->
+<section class="email-section">
+  <div class="section-tag">Nurture Sequence</div>
+  <h2 class="section-h2 fade-up">What happens after someone connects with C-Suite Support.</h2>
+  <div class="email-tabs">
+    <button class="email-tab active" onclick="switchEmail(0)">Day 0</button>
+    <button class="email-tab" onclick="switchEmail(1)">Day 3</button>
+    <button class="email-tab" onclick="switchEmail(2)">Day 7</button>
+    <button class="email-tab" onclick="switchEmail(3)">Day 10</button>
+    <button class="email-tab" onclick="switchEmail(4)">Day 14</button>
+  </div>
+  <div class="email-mock">
+
+    <div class="email-panel active" id="ep-0">
+      <div class="email-meta">From: C-Suite Support, Inc. · Delivered immediately on inquiry</div>
+      <div class="email-subject">We received your inquiry — here's what happens next</div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>Thank you for reaching out to C-Suite Support. Your inquiry has been received and a member of our team will be in touch within one business day to learn more about your company and match you with the right specialist.</p>
+        <p>While you wait, we want to be direct about something most financial consultants won't say: <strong>the biggest financial risk for growing companies isn't bad decisions — it's the absence of a system for making good ones.</strong></p>
+        <p>At $1M–$25M in revenue, most companies are operating with bookkeeper-level financial visibility while facing CFO-level financial complexity. That gap is exactly what C-Suite Support exists to close.</p>
+        <p>We'll be in touch shortly. In the meantime, if anything urgent comes up, reply directly to this email.</p>
+      </div>
+      <div class="email-sig">
+        <div class="email-sig-name">The C-Suite Support Team</div>
+        <div class="email-sig-co">C-Suite Support, Inc.</div>
+      </div>
+    </div>
+
+    <div class="email-panel" id="ep-1">
+      <div class="email-meta">From: C-Suite Support, Inc. · Sent Day 3</div>
+      <div class="email-subject">The 3 signs your company needs a fractional CFO (most founders miss #2)</div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>Rather than leading with a pitch, we'd rather lead with diagnosis. Here are the three clearest signals we see in companies that benefit most from fractional CFO support.</p>
+        <p><strong>Signal #1: You're making decisions on 30-day-old data.</strong> If your most recent financial picture is last month's P&L, you're navigating with an outdated map. Cash, hiring, and pricing decisions all require a forward view.</p>
+        <p><strong>Signal #2: Your bookkeeper and your CPA don't talk to each other.</strong> The bookkeeper closes the books. The CPA files taxes. Neither is thinking about your next 12 months. The gap between them is exactly where CFO-level work lives — and where most companies are exposed.</p>
+        <p><strong>Signal #3: You've started turning down growth because you can't finance it.</strong> This is the one that should keep founders up at night. A fractional CFO doesn't just report on the past — they structure the company to capture the opportunity that's already in front of you.</p>
+        <p>If any of these land, reply and let us know which one feels most urgent. We'll make sure your specialist conversation is focused there.</p>
+      </div>
+      <div class="email-sig">
+        <div class="email-sig-name">The C-Suite Support Team</div>
+        <div class="email-sig-co">C-Suite Support, Inc.</div>
+      </div>
+    </div>
+
+    <div class="email-panel" id="ep-2">
+      <div class="email-meta">From: C-Suite Support, Inc. · Sent Day 7</div>
+      <div class="email-subject">From gut-feel to 10× growth model: a real client story</div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>One of our recent engagements involved a wholesale distributor building an AI-powered platform with a clear vision but a complicated financial picture.</p>
+        <p>Revenue was real. A framework for how to scale it wasn't. They had a strong product roadmap but no financial architecture that connected headcount, infrastructure costs, and revenue targets into something investors could evaluate.</p>
+        <p><strong>Here's what we built in 60 days:</strong> a bottom-up revenue model across five growth drivers, a cost structure that scaled at the right ratio to revenue, a prospect-facing ROI calculator, and a KPI dashboard that gave the entire leadership team a shared financial language.</p>
+        <p>The result wasn't just better numbers. It was a company that could tell its story — to investors, to partners, to its own team — with clarity and confidence.</p>
+        <p>That's what CFO-level financial architecture produces. Not a report. A navigation system.</p>
+      </div>
+      <div class="email-sig">
+        <div class="email-sig-name">The C-Suite Support Team</div>
+        <div class="email-sig-co">C-Suite Support, Inc.</div>
+      </div>
+    </div>
+
+    <div class="email-panel" id="ep-3">
+      <div class="email-meta">From: C-Suite Support, Inc. · Sent Day 10</div>
+      <div class="email-subject">The most expensive mistake growing companies make</div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>It isn't overspending on headcount. It isn't pricing too low. It isn't even bad bookkeeping.</p>
+        <p><strong>The most expensive mistake is waiting too long to build financial infrastructure.</strong></p>
+        <p>Here's the pattern: A company scales from $1M to $5M on founder instinct and hustle. It works. Then they try to raise capital — or sell — or hire a VP of Finance — and the absence of a clean financial foundation becomes extremely costly to fix under pressure.</p>
+        <p>A clean cap table costs $15,000+ to reconstruct under diligence. A credible financial model takes 6–8 weeks to build retrospectively. Revenue attribution by segment requires re-categorizing two years of transactions.</p>
+        <p>All of it costs 3–10× more to build reactively than proactively. The fractional CFO engagement pays for itself not because of what it produces — but because of what it prevents.</p>
+      </div>
+      <div class="email-sig">
+        <div class="email-sig-name">The C-Suite Support Team</div>
+        <div class="email-sig-co">C-Suite Support, Inc.</div>
+      </div>
+    </div>
+
+    <div class="email-panel" id="ep-4">
+      <div class="email-meta">From: C-Suite Support, Inc. · Sent Day 14</div>
+      <div class="email-subject">Final note — and an open door</div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>This is our last note in this sequence. We believe in earning your attention, not demanding it.</p>
+        <p>If the last two weeks of content resonated, the next step is a straightforward conversation with one of our specialists. No pressure. No pitch. Just an honest look at where your company stands financially and what it would take to close the gaps.</p>
+        <p><strong>What a specialist conversation covers:</strong> your single biggest financial blind spot right now, what it would take to close it, and whether a fractional engagement is the right solution for your stage — or whether something else would serve you better.</p>
+        <p>We'd rather give you an honest answer that doesn't lead to an engagement than close a relationship that isn't the right fit.</p>
+        <p>If the timing is right, reply to this email or use the link below. If not — we hope the content was useful. Build something worth counting.</p>
+      </div>
+      <div class="email-sig">
+        <div class="email-sig-name">The C-Suite Support Team</div>
+        <div class="email-sig-co">C-Suite Support, Inc.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="cta-strip-left">
+    <h2>Ready to close your financial gaps?</h2>
+    <p>Tell us about your company. We'll match you with the right specialist within one business day.</p>
+  </div>
+  <button class="cta-strip-btn" onclick="openModal()">Connect With a Specialist →</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand-name">C-Suite Support, Inc.</div>
+    <div class="footer-tagline">Fractional C-Suite Leadership for Growing Companies</div>
+  </div>
+  <div class="footer-copy">© 2026 C-Suite Support, Inc. All rights reserved.</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">×</button>
+    <div id="m-form">
+      <div class="modal-title">Get Connected</div>
+      <div class="modal-sub">Share a few details and we'll match you with the right fractional CFO specialist within one business day.</div>
+      <label class="field-label">Your Name</label>
+      <input class="field-input" type="text" id="m-name" placeholder="Jane Smith">
+      <label class="field-label">Work Email</label>
+      <input class="field-input" type="email" id="m-email" placeholder="jane@company.com">
+      <label class="field-label">Company Name</label>
+      <input class="field-input" type="text" id="m-co" placeholder="Acme Corp">
+      <label class="field-label">Revenue Range</label>
+      <select class="field-input" id="m-rev">
+        <option value="" disabled selected>Select range</option>
+        <option>$1M – $3M</option>
+        <option>$3M – $10M</option>
+        <option>$10M – $25M</option>
+        <option>$25M+</option>
+      </select>
+      <button class="form-submit" onclick="handleModal()" style="margin-top: 8px;">Submit My Inquiry →</button>
+      <div class="form-privacy" style="margin-top: 12px;">Your information is never sold or shared.</div>
+    </div>
+    <div class="modal-success" id="m-success">
+      <div class="modal-success-icon">✓</div>
+      <div class="modal-success-h">Inquiry received.</div>
+      <div class="modal-success-p">A C-Suite Support specialist will be in touch within one business day. Check your inbox for a confirmation.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scorecard
+  const answers = new Array(6).fill(0);
+  function selectQ(btn, idx, val) {
+    btn.closest('.q-options').querySelectorAll('.q-opt').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[idx] = val;
+    if (answers.filter(v => v > 0).length === 6) {
+      document.getElementById('sc-cta').style.display = 'block';
+    }
+  }
+  function showResult() {
+    const total = answers.reduce((a,b) => a+b, 0);
+    const pct = Math.round((total/18)*100);
+    document.getElementById('r-pct').textContent = pct + '%';
+    document.getElementById('sc-cta').style.display = 'none';
+    let label, sub, body;
+    if (pct <= 44) {
+      label = 'Critical Infrastructure Gaps';
+      sub = 'Your company is operating without essential financial systems.';
+      body = 'Your score indicates significant financial visibility gaps that will compound as you scale. Cash flow forecasting, financial modeling, and investor-ready reporting are all areas of exposure. The good news is that these gaps are buildable — and a focused engagement typically resolves the core structural issues within 60–90 days. A C-Suite Support specialist can walk you through exactly where to start.';
+    } else if (pct <= 72) {
+      label = 'Developing — Room for Leverage';
+      sub = 'You have foundations. The question is whether they scale.';
+      body = 'You have more in place than many companies at your revenue stage, but the gaps that remain are likely costing you decision quality and investor confidence. The opportunity isn\'t to rebuild from scratch — it\'s to close specific gaps and make sure your systems are connected, forward-facing, and defensible under external scrutiny.';
+    } else {
+      label = 'Strong Foundation';
+      sub = 'You\'re ahead of most companies at your revenue stage.';
+      body = 'Your financial infrastructure is more mature than most. The opportunity at this stage is optimization: tighter forecasting, deeper unit economics, and ensuring your financial narrative is as compelling externally as it is useful internally. A C-Suite Support engagement here is typically about leverage — getting more strategic signal from the systems you\'ve already built.';
+    }
+    document.getElementById('r-label').textContent = label;
+    document.getElementById('r-sub').textContent = sub;
+    document.getElementById('r-body').textContent = body;
+    const el = document.getElementById('sc-result');
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => { document.getElementById('r-bar').style.width = pct + '%'; }, 100);
+  }
+  function handleResultForm() {
+    const n = document.getElementById('r-name').value;
+    const e = document.getElementById('r-email').value;
+    if (!n || !e) { alert('Please enter your name and email.'); return; }
+    document.getElementById('sc-result').innerHTML = '<div style="text-align:center;padding:32px 0;"><div style="font-size:2.5rem;margin-bottom:14px;">✓</div><div style="font-family:Cormorant Garamond,serif;font-size:1.6rem;color:#fff;margin-bottom:8px;">Inquiry received.</div><div style="font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.7;font-weight:300;">A C-Suite Support specialist will be in touch within one business day.</div></div>';
+  }
+
+  // Email tabs
+  function switchEmail(i) {
+    document.querySelectorAll('.email-tab').forEach((t,j) => t.classList.toggle('active', i===j));
+    document.querySelectorAll('.email-panel').forEach((p,j) => p.classList.toggle('active', i===j));
+  }
+
+  // Modal
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) { if (e.target.id === 'modal') closeModal(); }
+  function handleModal() {
+    const n = document.getElementById('m-name').value;
+    const e = document.getElementById('m-email').value;
+    if (!n || !e) { alert('Please enter your name and email.'); return; }
+    document.getElementById('m-form').style.display = 'none';
+    document.getElementById('m-success').style.display = 'block';
+  }
+  function handleHeroForm() {
+    const n = document.getElementById('h-name').value;
+    const e = document.getElementById('h-email').value;
+    if (!n || !e) { alert('Please enter your name and email.'); return; }
+    openModal();
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
